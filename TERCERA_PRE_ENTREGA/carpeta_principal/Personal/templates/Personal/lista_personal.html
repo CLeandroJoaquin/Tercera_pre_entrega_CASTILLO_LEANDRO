@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block titulo %}
+<title> Lista de Personal</title>
+{% endblock titulo %}
+
+{% block contenido %}
+<h3>Personal:</h3>
+
+
+<table class="table">
+    <tbody>
+        <tr>
+            <th>ID</th>
+            <th><th>
+            <th><th>
+            <th>Nombre</th>
+            <th><th>
+            <th><th>
+            <th>Legajo</th>
+            <th><th>
+            <th><th>
+            <th>Antiguedad</th>
+            <th><th>
+            <th><th>
+            <th>Puesto</th>
+            <th></th>
+
+        </tr>
+
+        <tr>
+            {% for personal in personal %}    
+       
+
+            <li>
+                <td> {{ personal.id }}</td>
+                <td> {{ personal.nombre }}</td>
+                <td> {{ personal.numero_legajo}}</td>
+                <td> {{ personal.antiguedad}}</td>
+                <td> {{ personal.puesto}}</td>
+
+            </li>
+            {% endfor %}
+        </tr>
+
+
+    </tbody>
+</table>
+
+{% endblock contenido %}
+
+
+
+
+
+
+             
