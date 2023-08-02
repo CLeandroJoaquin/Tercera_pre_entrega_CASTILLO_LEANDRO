@@ -1,4 +1,5 @@
 from django.db import models
+from django import forms
 
 # Create your models here.
 
@@ -27,3 +28,7 @@ class Ventas(models.Model):
     descripcion= models.TextField()
     def __str__(self):
          return f"{self.codigo_de_producto}, {self.unidades},{self.vendedor},{self.descripcion}"
+    
+
+
+
