@@ -59,7 +59,8 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            BASE_DIR/ "carpeta_principal/templates", 
+            BASE_DIR / "carpeta_principal/templates",  # Carpeta de plantillas de la aplicación "carpeta_principal"
+            BASE_DIR / "perfiles/templates",  # Ca
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -134,4 +135,4 @@ STATICFILES_DIRS =  [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
+LOGIN_URL = '/perfiles/login'

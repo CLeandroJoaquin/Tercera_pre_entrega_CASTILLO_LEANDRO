@@ -3,22 +3,24 @@ from Personal.models import Personal, Ventas, Inventario
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.urls import reverse
+from django.contrib.auth.decorators import login_required
+
 from Personal.forms import PersonalFormulario 
 from django.db.models import Q
 
 
 # Create your views here.
-
-
+@login_required
 def lista_personal(request):
+    
     contexto = {
-        "personal": Personal.objects.all(),
+            "personal": Personal.objects.all(),
     }
     http_response = render(
-        request=request,
-        template_name='Personal/lista_personal.html',
-        context=contexto,
-    )
+            request=request,
+            template_name='Personal/lista_personal.html',
+            context=contexto,
+        )
     return http_response
 
 def inicio(request):
