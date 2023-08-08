@@ -12,8 +12,8 @@ class Personal(models.Model):
     puesto = models.CharField(max_length=230, default='Sin puesto') 
     creador = models.ForeignKey(User, on_delete= models.CASCADE, related_name='personas_creadas', default=1)
     def __str__(self):
-            return f"{self.nombre},{self.numero_legajo},{self.antiguedad},{self.puesto}"
-    
+            return f"{self.nombre}, {self.puesto}"
+    #,{self.numero_legajo},{self.antiguedad},
 
 class Inventario(models.Model):
     codigo = models.CharField(max_length=230)

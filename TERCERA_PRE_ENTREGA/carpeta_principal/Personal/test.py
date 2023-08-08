@@ -8,7 +8,8 @@ class PersonalTests(TestCase):
 
    def test_creacion_personal(self):
        # caso uso esperado
-       persona = Personal(nombre="Nombre", puesto="Puesto")
+       self.user = User.objects.create_user(username="egp1020", email='javed@javed.com', password='my_secret')
+       persona = Personal(nombre="Nombre", puesto="Puesto", creador=self.user)
        persona.save()
 
        # Compruebo que el curso fue creado y la data fue guardad correctamente
@@ -17,9 +18,10 @@ class PersonalTests(TestCase):
        self.assertEqual(persona.puesto, "Puesto")
 
    def test_persona_str(self):
-       persona = Personal(nombre="Leandro", puesto="Jefe")
+       self.user = User.objects.create_user(username="egp1020", email='javed@javed.com', password='my_secret')
+       persona = Personal(nombre="Leandro", puesto="Jefe", creador=self.user)
        persona.save()
 
-       # Compruebo el str funciona como se desea
+       # Compruebo el str funciona como se dese
        self.assertEqual(persona.__str__(), "Leandro, Jefe")
 

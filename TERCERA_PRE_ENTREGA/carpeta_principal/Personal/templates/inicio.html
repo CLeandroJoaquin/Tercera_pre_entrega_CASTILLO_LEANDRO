@@ -3,4 +3,6 @@
 {% block contenido %}
 <h1>Hola {{user.get_full_name }}</h1>
 <img src="{{ user.avatar.imagen.url }}" />
+<img  style="width: 100px; height: 100px;" src="{{ user.avatar.imagen.url }}" />
+
 {% endblock contenido %}
