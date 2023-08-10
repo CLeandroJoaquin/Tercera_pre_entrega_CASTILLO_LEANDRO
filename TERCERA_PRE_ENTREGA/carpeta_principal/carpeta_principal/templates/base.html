@@ -20,12 +20,19 @@
         
         <!-- Google fonts-->
         <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
-       
+        <style>
+            body {
+                background-color: #070318;
+                color: #cfffff;
+            }
+        </style>
     </head>
     <body>
         <!-- Navigation-->
-        <nav class="navbar navbar-light bg-light static-top">
+        <nav class="navbar navbar-dark bg-dark static-top">
+            
             <div class="container">
+                
                 <a class="navbar-brand" href="{% url 'inicio' %}">Inicio</a>
                 <a class="navbar-brand" href="{% url 'Personal' %}">Personal</a>
                 <th><th>
@@ -42,10 +49,12 @@
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                         <li>
+                            
                             <a class="dropdown-item" href="{% url 'editar_perfil' %}">Editar mis datos</a>
                         </li>
                         <li>
                             <a class="dropdown-item" href="{% url 'agregar_avatar' %}">Agregar avatar</a>
+                            <img style="width: 50px; height: 50px; margin-right: 5px;" src="{{user.avatar.imagen.url}}">
                         </li>
                             
                         <li>
