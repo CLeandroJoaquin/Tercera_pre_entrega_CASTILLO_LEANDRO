@@ -13,6 +13,7 @@
         <title> {% block titulo %} {% endblock titulo %}</title>
         
         <h1 class="mb-5">Plantilla de control</h1>
+
         
         
         <!-- Favicon-->
@@ -25,21 +26,37 @@
                 background-color: #070318;
                 color: #cfffff;
             }
+            h1.mb-5 {
+                font-size: 50px; /* Ajusta el tamaño de fuente a tu preferencia */
+                margin: 60px 0;
+                text-align: center; /* Centra horizontalmente el título */
+                
+                top: 50%; /* Centra verticalmente el título */
+                left:5%; /* Centra horizontalmente el título */
+                transform: translate(-10%, -10%); /* Ajusta la posición */
+                font-family: "Arial";
+            }
+            footer {
+                background: linear-gradient(to bottom, #070318, #000000); /* Cambia los colores según tus preferencias */
+            }
         </style>
     </head>
     <body>
         <!-- Navigation-->
+        
         <nav class="navbar navbar-dark bg-dark static-top">
-            
+         
             <div class="container">
                 
-                <a class="navbar-brand" href="{% url 'inicio' %}">Inicio</a>
-                <a class="navbar-brand" href="{% url 'Personal' %}">Personal</a>
+                <a class="navbar-brand btn btn-success" href="{% url 'inicio' %}">Inicio</a>
+               
+                <a class="navbar-brand btn btn-primary" href="{% url 'Personal' %}">Personal</a>
                 <th><th>
-                <a class="navbar-brand" href="{% url 'lista_ventas' %}">Ventas</a>
+                <a class="navbar-brand btn btn-outline-primary" href="{% url 'lista_ventas' %}">Ventas</a>
                 <th><th>
-                <a class="navbar-brand" href="{% url 'lista_material' %}">Inventario</a>
+                <a class="navbar-brand btn btn-info" href="{% url 'lista_material' %}">Inventario</a>
                 {% if user.is_authenticated %}
+                <a href="https://web.whatsapp.com/" target="_blank">Abrir WhatsApp Web</a>
                 <div class="dropdown">
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                         <div style="display: inline-flex;">
@@ -73,7 +90,7 @@
                
             </div>
         </nav>
-
+      
         <section style="padding:4rem 3rem;">
             {% block contenido %}
             {% endblock contenido %}

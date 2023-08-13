@@ -8,3 +8,8 @@ En el mismo se encuentran 3 clases:
 ##Contraseña de Aministrador
     +user: admin
     +Pass: Leandro78
+
+
+#CONTRASEÑA DE USUARIO NORMAL:
+USUARIO; 78piedra.
+PASS: @Paula12

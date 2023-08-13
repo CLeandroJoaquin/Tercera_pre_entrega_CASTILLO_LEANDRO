@@ -4,7 +4,7 @@ from django import forms
 from django.contrib.auth.models import User
 from django.core.validators import RegexValidator
 from datetime import date
-
+from django.utils import timezone
 import datetime
 # Create your models here.
 
@@ -25,15 +25,25 @@ class Inventario(models.Model):
     unidades = models.CharField(max_length=230)
     ea=models.TextField(max_length=10)
     localizador = models.CharField(max_length=54)
+    fecha = models.DateField()
     comentario=models.CharField(max_length=5000)
     creador = models.ForeignKey(User, on_delete=models.CASCADE, related_name='materiales_creados', default=1)
     
 
     
     def __str__(self):
-         return f"{self.codigo},{self.unidades},{self.ea},{self.localizador},{self.comentario}"
-    
+         return f"{self.codigo},{self.unidades},{self.ea},{self.localizador},{self.fecha} ,{self.comentario}"
+ 
+ #############################################
+ #agregado de HISTORIAL DE MATERIALES   
+class HistorialInventario(models.Model):
+    material = models.ForeignKey(Inventario, on_delete=models.CASCADE)
+    cantidad_anterior = models.IntegerField()
+    cantidad_nueva = models.IntegerField()
+    fecha = models.DateField()
+    usuario = models.ForeignKey(User, on_delete=models.CASCADE)
 
+################################################
 
 
 class Ventas(models.Model):
@@ -42,7 +52,7 @@ class Ventas(models.Model):
     vendedor = models.CharField(max_length=230)
     descripcion= models.TextField()
     codigo_cliente=models.CharField(max_length=50)
-    fecha_venta=models.DateField(default=date.today())
+    fecha_venta = models.DateField(default=timezone.now)
     def __str__(self):
          return f"{self.codigo_de_producto}, {self.unidades},{self.vendedor},{self.descripcion},{self.codigo_cliente},{self.fecha_venta}"
     
